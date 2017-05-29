@@ -1,0 +1,41 @@
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>TODO supply a title</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous" />
+        <link rel="stylesheet" type="text/css" th:href="@{/assets/css/style.css}" />
+
+    </head>
+    <body>
+        <!--        <table>
+                    <tr th:fragment="view">-->
+        <div th:fragment="view">
+            <td th:text="${m.name}"></td>
+            <td th:text="${m.description}"></td>
+            <td><img th:src="@{/assets/images/{name}(name=${m.image})}" class="img-thumbnail" width="100" height="130" /></td>
+            <td>
+                <ul class="list-unstyled">
+                    <li th:each="a: ${m.actors}"><p th:text="${a.firstName} + ' ' + ${a.lastName}"></p></li>
+                </ul>
+
+            </td>
+            <td>
+                <ul class="list-unstyled">
+                    <li th:each="g: ${m.genres}"><p th:text="${g.name}"></p></li>
+                </ul>
+
+            </td>
+            <td>
+                <form th:action="@{/{id}(id=${m.id})}" th:method="get" >
+                    <input type="submit" value="Edit" class="btn btn-default" />
+                </form>
+            </td>
+            <td>
+                <form th:action="@{/{id}(id=${m.id})}" th:method="delete">
+                    <input type="submit" value="Delete" class="btn btn-default" />
+                </form>
+            </td>
+        </div>
+        <!--            </tr>
+                </table>-->
+    </body>
+</html>

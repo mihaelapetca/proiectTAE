@@ -1,0 +1,45 @@
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>Genres</title>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous" />
+        <link rel="stylesheet" type="text/css" th:href="@{/assets/css/style.css}" />
+    </head>
+    <body>
+        <div>
+            <h3>Genres</h3>
+            <hr></hr>
+        </div>
+        <div class="col-md-3" th:include="menu::menu">
+            
+        </div>
+
+        <div class="col-md-9">
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Delete</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr th:each="g : ${genres}">
+                        <td th:text="${g.name}"></td>
+                        
+                        <td>
+                            <form th:action="@{genres/{id}(id=${g.id})}" th:method="delete">
+                                <input type="submit" value="Delete" class="btn btn-default" />
+                            </form>
+                        </td>
+                    </tr>
+                </tbody>
+
+            </table>
+
+
+            
+        </div>
+    </body>
+</html>

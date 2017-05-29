@@ -1,0 +1,16 @@
+body{
+    margin: 2%;
+}
+
+h3 {
+    margin: 2%;
+}
+
+hr {
+    height: 1.5px;
+    background: black;
+}
+
+.form-edit {
+    margin-bottom: 3%;
+}
